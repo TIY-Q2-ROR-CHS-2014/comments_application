@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @article.name
+%p
+  %b Content:
+  = @article.content
+%p
+  %b Comments:
+  %ul
+    - @article.comments.each do |comment|
+      %li
+        = comment.text
+
+= link_to 'Edit', edit_article_path(@article)
+|
+= link_to 'Back', articles_path
+|
+= link_to "Add Comment", comment_article_path(@article)
